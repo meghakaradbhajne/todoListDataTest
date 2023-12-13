@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TODO LIST</h1>
+     <form onsubmit="saveData(event)">
+        <form id="addForm">
+        <label>Todo Name</label>
+    <input type="text" id="item" name="todoNamee"/>
+    <label>description</label>
+    <input type="text" id="description" name="descriptionn"/>
+     <button>AddItem</button>
+   
+    </form>
+    <h2>todoItem<h2>
+        <ul id="listOfItem">
+        </ul>
+        <script src="index.js"></script>
+         <script>
+            function saveData(event){
+                event.preventDefault();
+                const todaName  = event.target.todoNamee.value;
+                const description  = event.target.descriptionn.value;
+            
+            const obj={
+                todaName,
+                description
+            }
+            localStorage.setItem(obj.todaName,JSON.stringify(obj))
+            showUserOnscreen(obj)
+        }
+            function showUserOnscreen(obj){
+                const parentElem = document.getElementById('listOfItem')
+                parentElem.innerHTML = parentElem.innerHTML+ `<li> ${obj.todaName} ,${obj.description}</li>`
+
+                 
+    var addBtn = document.createElement('button');
+    deleteBtn.appendChild(document.createTextNode('add'));
+    li.appendChild(addBtn);
+ 
+    var deleteBtn = document.createElement('button');
+    deleteBtn.appendChild(document.createTextNode('delete'));
+    li.appendChild(deleteBtn);
+
+    } 
+
+
+        </script> 
+
+
+</body>
+</html>
